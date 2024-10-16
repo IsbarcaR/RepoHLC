@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Interactiva</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .highlight {
+            background-color: rgb(14, 216, 55);
+        }
+        h1 {
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h1>Generador de Tabla</h1>
+    <div id="table-container"></div>
+    <script>
+        let filas=parseInt(prompt("Numero de filas"));
+        let columnas=parseInt(prompt("Numero de columnas"));
+        let tabla=document.createElement('table');
+        let cabecera=document.createElement('tr')
+
+        for(let i=0;i<columnas;i++){
+            let th= document.createElement('th');
+            th.textContent=(prompt(`Texto para th tabla columna ${i+1}`));
+            cabecera.appendChild(th);
+        }
+        tabla.appendChild(cabecera);
+
+        for(let i=0;i<filas;i++){
+            let fila= document.createElement('tr');
+            for(let j=0;j<columnas;j++){
+            let celda=document.createElement('td')
+            celda.textContent=((`Texto para tr ${i+1}, td ${j+1}`));
+            fila.appendChild(celda);
+            
+            celda.addEventListener('click',()=>celda.classList.toggle('highlight'));
+            celda.addEventListener('dblclick',()=>celda.textContent ="reservado");
+            }
+           
+            tabla.appendChild(fila);
+        }
+        let filaEspecifica=parseInt(prompt("Dime la fila a escribir"))-1;
+        let columnaEspecifica=parseInt(prompt("Dime la columna a escribir"))-1;
+        let nuevoValor = prompt("Escribe el valor que quieres poner en esa celda");
+        
+         // Comprobar si la fila y columna seleccionadas están dentro de los límites
+        if (filaEspecifica >= 0 && filaEspecifica < filas && columnaEspecifica >=0 && columnaEspecifica < columnas) {
+            let filaModificada = tabla.rows[filaEspecifica+1 ]; 
+            let celdaModificada = filaModificada.cells[columnaEspecifica];
+            celdaModificada.textContent = nuevoValor; 
+        } else {
+            alert("Fila o columna fuera de rango"); 
+        }
+
+
+        
+
+
+        document.getElementById('table-container').appendChild(tabla);
+
+    </script>
