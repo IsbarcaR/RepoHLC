@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Popup</title>
+    <script>
+        window.onload = () => {
+            setTimeout(() => {
+                const popup = window.open('', 'Bienvenida', 'width=300,height=100,toolbar=no,scrollbars=no,resizable=no');
+                popup.document.write(`
+                    <p>Bienvenido a la página</p>
+                    <button onclick="window.close()">Cerrar</button>
+                `);
+            }, 2000);
+        };
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 5 - Popup de Bienvenida</h1>
+</body>
+</html>

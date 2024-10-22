@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Hora Actual</title>
+    <style>
+        #hora {
+            font-size: 48px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+        function mostrarHora() {
+            const fecha = new Date();
+            const horas = fecha.getHours().toString().padStart(2, '0');
+            const minutos = fecha.getMinutes().toString().padStart(2, '0');
+            const segundos = fecha.getSeconds().toString().padStart(2, '0');
+            document.getElementById('hora').textContent = `${horas}:${minutos}:${segundos}`;
+        }
+
+        window.onload = () => {
+            mostrarHora();
+            setInterval(mostrarHora, 1000);
+        };
+    </script>
+</head>
+<body>
+    <div id="hora"></div>
+</body>
+</html>

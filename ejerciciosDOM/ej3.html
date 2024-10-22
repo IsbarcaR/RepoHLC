@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - setTimeout y setInterval</title>
+    <script>
+        window.onload = () => {
+            // Alert a los 2 segundos de cargar la página
+            setTimeout(() => {
+                alert('Han pasado 2 segundos desde que se cargó la página.');
+            }, 2000);
+
+            // Alert cada 3 segundos hasta llegar a 10 ejecuciones
+            let contador = 0;
+            const intervalId = setInterval(() => {
+                contador++;
+                alert(`Esta es la alerta número ${contador}`);
+                if (contador >= 10) {
+                    clearInterval(intervalId);
+                }
+            }, 3000);
+        };
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 3 - setTimeout y setInterval</h1>
+</body>
+</html>
