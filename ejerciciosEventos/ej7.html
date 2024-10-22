@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7 - Días Pasados</title>
+</head>
+<body>
+    <h1>Ejercicio 7: Días Pasados</h1>
+    <button id="calcularDias">Calcular Días Pasados</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularDiasPasados(fecha) {
+            const hoy = new Date();
+            const diferencia = hoy - fecha; // Diferencia en milisegundos
+            return Math.floor(diferencia / (1000 * 60 * 60 * 24)); // Convertir a días
+        }
+
+        document.getElementById('calcularDias').addEventListener('click', function() {
+            const diasDesde2024 = calcularDiasPasados(new Date(2024, 0, 1));
+            const diasDesde2000 = calcularDiasPasados(new Date(2000, 0, 1));
+            document.getElementById('resultado').textContent = `Días desde el 1 de enero de 2024: ${diasDesde2024}, desde el 1 de enero de 2000: ${diasDesde2000}.`;
+        });
+    </script>
+</body>
+</html>

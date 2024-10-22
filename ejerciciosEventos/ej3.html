@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - Contador de Caracteres</title>
+</head>
+<body>
+    <h1>Ejercicio 3: Contador de Caracteres</h1>
+    <input type="text" id="texto" maxlength="30">
+    <span id="contador">30 caracteres restantes</span>
+
+    <script>
+        const input = document.getElementById('texto');
+        const contador = document.getElementById('contador');
+        const maxCaracteres = 30;
+
+        input.addEventListener('input', function() {
+            const caracteresRestantes = maxCaracteres - input.value.length;
+            contador.textContent = `${caracteresRestantes} caracteres restantes`;
+        });
+    </script>
+</body>
+</html>

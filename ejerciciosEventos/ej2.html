@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Escuchador de Teclas</title>
+</head>
+<body>
+    <h1>Ejercicio 2: Presiona una tecla</h1>
+    <script>
+        document.body.addEventListener('keydown', function(event) {
+            alert(`Tecla: ${event.key}, keyCode: ${event.keyCode}`);
+        });
+    </script>
+</body>
+</html>
