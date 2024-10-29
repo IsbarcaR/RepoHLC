@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Crear una pequeña ventana en la esquina superior izquierda
+        let movingWindow = window.open("", "", "width=200,height=150,top=0,left=0");
+        movingWindow.document.write("<h3>Me muevo</h3>");
+
+        let x = 0, y = 0;
+        let directionX = 10, directionY = 0; // Comienza moviéndose a la derecha
+
+        function moveWindow() {
+            // Mover la ventana a las nuevas coordenadas
+            x += directionX;
+            y += directionY;
+            movingWindow.moveTo(x, y);
+
+            // Cambiar dirección cuando se alcanza el borde de la pantalla
+            if (x + 200 >= screen.width) { // Borde derecho
+                directionX = 0; directionY = 10; // Cambia hacia abajo
+            } else if (y + 150 >= screen.height) { // Borde inferior
+                directionX = -10; directionY = 0; // Cambia hacia la izquierda
+            } else if (x <= 0) { // Borde izquierdo
+                directionX = 0; directionY = -10; // Cambia hacia arriba
+            } else if (y <= 0) { // Borde superior
+                directionX = 10; directionY = 0; // Cambia hacia la derecha
+            }
+        }
+
+        // Ejecutar el movimiento cada 50 ms
+        setInterval(moveWindow, 50);
+
+
+
+    </script>
+</body>
+
+</html>
