@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+        <p>Párrafo 1</p>
+        <p>Párrafo 2</p>
+        <p>Párrafo 3</p>
+        <p>Párrafo 4</p>
+    </div>
+    <button id="resetButton">Mostrar todo el texto</button>
+
+    <script>
+        const paragraphs = document.querySelectorAll("#content p");
+        const resetButton = document.getElementById("resetButton");
+
+        paragraphs.forEach(paragraph => {
+            paragraph.addEventListener("mouseover", () => {
+                paragraph.style.color = "red";
+            });
+
+            paragraph.addEventListener("mouseout", () => {
+                paragraph.style.display = "none";
+            });
+        });
+
+        resetButton.addEventListener("click", () => {
+            paragraphs.forEach(paragraph => {
+                paragraph.style.display = "block";
+                paragraph.style.color = ""; // Restaurar color
+            });
+        });
+    </script>
+
+</body>
+
+</html>

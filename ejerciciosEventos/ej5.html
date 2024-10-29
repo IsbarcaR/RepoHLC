@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Crear una pequeña ventana
+        let hideWindow = window.open("", "", "width=200,height=150,top=100,left=100");
+        hideWindow.document.write("<h3>¡Intenta atraparme!</h3>");
+
+        hideWindow.document.body.onmouseenter = function () {
+            // Cambiar a una posición aleatoria
+            const randomX = Math.floor(Math.random() * (screen.width - 200));
+            const randomY = Math.floor(Math.random() * (screen.height - 150));
+            hideWindow.moveTo(randomX, randomY);
+        };
+
+    </script>
+</body>
+
+</html>
